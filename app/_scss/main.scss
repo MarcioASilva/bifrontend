@@ -1,0 +1,8 @@
+body {
+  color: blue;
+}
+
+tbody tr:nth-child(odd) {
+  font: 2px;
+   background-color: #ccc;
+}
