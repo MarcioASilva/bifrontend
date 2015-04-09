@@ -4,6 +4,7 @@
   "dependencies": {
     "jquery": "~2.1.3",
     "impress.js": "~0.5.3",
-    "c3js-chart": "~0.4.9"
+    "c3js-chart": "~0.4.9",
+    "font-awesome": "~4.3.0"
   }
 }
