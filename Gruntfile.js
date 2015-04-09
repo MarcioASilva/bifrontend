@@ -261,9 +261,15 @@ module.exports = function (grunt) {
             // Explicitly add any files your site needs for distribution here.
             //'_bower_components/jquery/jquery.min.js',
             //'favicon.ico',
-            //'apple-touch*.png'
+            //'apple-touch*.png',
           ],
           dest: '<%= yeoman.dist %>'
+        },{
+          expand: true,
+          dot: true,
+          cwd: '<%= yeoman.app %>/_bower_components/font-awesome/fonts',
+          src : ['**/*'],
+          dest: '<%= yeoman.dist %>/fonts'
         }]
       },
       // Copy CSS into .tmp directory for Autoprefixer processing
