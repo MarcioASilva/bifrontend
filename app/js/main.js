@@ -1,21 +1,43 @@
 $(document).ready(function() {
 
+  // Init impress
   impress().init();
 
-  var apiurl  = 'http://bi.app/api';
-  var dropown = 1;
+  // Our global(ish) values
+  var apiurl   = 'http://bi.app/api';
+  var dropdown = 1;
 
-  // fetch the data for the dropdown
-    // add the data to the DOM
-    // hide the loading thing
+  // The dropdown data
+  $.ajax({
+    url: apiurl + '/charts/select-dropdown',
+    type: 'GET'
+  }).done(function(data) {
 
-  // on change the dropdown
-    // show the loading thing
-    // get the value for the dropdown and store in a global(ish) var
-    // call initialize
+    var html = '<option value="0">Select Report By Month</option>';
 
+    data.records.forEach(function(report) {
+      html += '<option value="' + report.id + '">' + report.value + '</option>';
+    });
+
+    $('.dropdown').html(html);
+    $('.loading').addClass('hide');
+  });
+    
+
+  // Get started when the dropdown gets selected
+  $('.step').on('change', '.dropdown', function(e) {
+    $('.loading').removeClass('hide');
+    dropdown = $(this).val();
+    initialize();
+  });
+
+
+  // Our API calls
   var calls = [
     {
+      name: 'coverpage',
+      url: '/charts/cover-page/'
+    },{
       name: 'page2',
       url: '/charts/page2/'
     }, {
@@ -25,12 +47,13 @@ $(document).ready(function() {
   ];
 
 
+  // Get all data before getting started
   function initialize() {
 
     var promises = $(calls).map(function(i, arr) {
 
       return $.ajax({
-        url: apiurl + arr.url + dropown,
+        url: apiurl + arr.url + dropdown,
         type: 'GET'
       }).done(function(data) {
         calls[i].data = data;
@@ -39,25 +62,42 @@ $(document).ready(function() {
     }).get();
 
     $.when.apply($, promises).done(function() {
-      // hide the loading thing
-      // go to the next page
-      // instanciate the first graph
+      $('.loading').addClass('hide');
+      impress().next();
     });
   }
 
-  function makeAjaxCall(url, charttype, id) {
-    $.ajax({
-      url: apiurl + url,
-      type: "GET"
-    })
-    .done(function(data) {
+  // The event listener for page changes
+  document.addEventListener('impress:stepenter', function(e) {
 
-      // call a function
-      createLineChart(data, '#chart');
-      
-    });
+    switch(e.target.id) {
+      case 'coverpage':
+        bindCoverPage();
+        break;
+
+      case 'page-2':
+        break;
+
+      case 'page-3':
+        break;
+
+      case 'page-4':
+        break;
+
+      case 'page-5':
+        break;
+    }
+  });
+
+  // the bind to page functions (they will be called from the switch)
+  function bindCoverPage() {
+    $('.coverpage-reportdate span').html(calls[0].data.records.report_date);
+    $('.coverpage-dateexported span').html(calls[0].data.records.exported_date);
   }
 
+  // ...
+
+  // The helper functions
   function createLineChart(data, element) {
     var arr  = ['2015'];
     var arr2 = ['2014'];
