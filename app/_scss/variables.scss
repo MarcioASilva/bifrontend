@@ -1,0 +1,8 @@
+$clr_black: #000000;
+
+$clr_blue:  #0000FF;
+$clr_green: #00FF00;
+
+$clr_light_green: lighten($clr_green, 5%);
+
+$clr_semi_transparent: rgba(0, 0, 0, .5)
