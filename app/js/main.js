@@ -5,7 +5,7 @@ $(document).ready(function() {
 
   // Our global(ish) values
   var apiurl   = 'http://bi.app/api';
-  var dropdown = 1;
+  var dropdown;
 
   // The dropdown data
   $.ajax({
