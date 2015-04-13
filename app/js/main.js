@@ -40,7 +40,7 @@ $(document).ready(function() {
     },{
       name: 'page2',
       url: '/charts/page2/'
-    }, {
+    },{
       name: 'page3',
       url: '/charts/page3/'
     }
@@ -101,13 +101,45 @@ $(document).ready(function() {
 
   // the bind to page functions (they will be called from the switch)
   function bindPage2() {
-    $('.page2-previousyear thead').html(calls[1].data.previous_year);
-    // $('.coverpage-dateexported span').html(calls[0].data.records.exported_date);
+    pagedata = calls[1].data;
+
+    $page = $('#page-2');
+
+    $previousyear = $page.find('.previousyear');
+    $currentyear  = $page.find('.currentyear');
+
+    $previousyear.find('thead > tr > th').html(pagedata.previous_year);
+    $currentyear.find('thead > tr > th').html(pagedata.current_year);
+
+    $previousyear.find('.table-total').html(pagedata.previous_year_total);
+    $currentyear.find('.table-total').html(pagedata.current_year_total);
+
+    $previousyear
+      .find('tbody')
+      .html(createTableHtml(pagedata.previous_year_records));
+
+    $currentyear
+      .find('tbody')
+      .html(createTableHtml(pagedata.current_year_records));
   }
 
   // ...
 
   // The helper functions
+  function createTableHtml(data) {
+    var html = '';
+
+    data.forEach(function(record) {
+      html += '<tr>' +
+                '<td>' + record.name + '</td>' +
+                '<td>' + record.count + '</td>' +
+                '<td>' + record.perc + '</td>' +
+              '</tr>';
+    });
+
+    return html;
+  }
+
   function createLineChart(data, element) {
     var arr  = ['2015'];
     var arr2 = ['2014'];
