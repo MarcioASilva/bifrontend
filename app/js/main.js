@@ -76,15 +76,19 @@ $(document).ready(function() {
         break;
 
       case 'page-2':
+        bindPage2();
         break;
 
       case 'page-3':
+        bindPage3();
         break;
 
       case 'page-4':
+        bindPage4();
         break;
 
       case 'page-5':
+        bindPage5();
         break;
     }
   });
@@ -93,6 +97,12 @@ $(document).ready(function() {
   function bindCoverPage() {
     $('.coverpage-reportdate span').html(calls[0].data.records.report_date);
     $('.coverpage-dateexported span').html(calls[0].data.records.exported_date);
+  }
+
+  // the bind to page functions (they will be called from the switch)
+  function bindPage2() {
+    $('.page2-previousyear thead').html(calls[1].data.previous_year);
+    // $('.coverpage-dateexported span').html(calls[0].data.records.exported_date);
   }
 
   // ...
