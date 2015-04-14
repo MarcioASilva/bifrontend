@@ -147,8 +147,8 @@ $(document).ready(function() {
     $previousyear = $page.find('.previousyear');
     $currentyear  = $page.find('.currentyear');
 
-    console.log($previousyear.);
-    console.log($currentyear);
+    // console.log($previousyear);
+    // console.log($currentyear);
   }
 
   function createLineChart(data, element) {
@@ -157,7 +157,7 @@ $(document).ready(function() {
 
     data.records.forEach(function(record) {
       arr.push(series1.original_estimate_value);
-      arr2.push(series2.original_estimate_value * 2);
+      arr2.push(series.original_estimate_value * 2);
     });
     var chart = c3.generate({
       bindto: element,
