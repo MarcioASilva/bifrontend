@@ -123,7 +123,6 @@ $(document).ready(function() {
       .html(createTableHtml(pagedata.current_year_records));
   }
 
-  // ...
 
   // The helper functions
   function createTableHtml(data) {
@@ -140,15 +139,26 @@ $(document).ready(function() {
     return html;
   }
 
+  function bindPage3() {
+    pagedata = calls[2].data;
+    
+    $page = $('#page-3');
+
+    $previousyear = $page.find('.previousyear');
+    $currentyear  = $page.find('.currentyear');
+
+    console.log($previousyear.);
+    console.log($currentyear);
+  }
+
   function createLineChart(data, element) {
     var arr  = ['2015'];
     var arr2 = ['2014'];
 
     data.records.forEach(function(record) {
-      arr.push(record.original_estimate_value);
-      arr2.push(record.original_estimate_value * 2);
+      arr.push(series1.original_estimate_value);
+      arr2.push(series2.original_estimate_value * 2);
     });
-
     var chart = c3.generate({
       bindto: element,
       data: {

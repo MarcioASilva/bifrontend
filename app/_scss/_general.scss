@@ -1,5 +1,5 @@
-body {
-  color: $clr_blue;
+body,p,div,html,h1,h2,h3,table {
+  font-family: arial;
 }
 
 .hide {
@@ -9,4 +9,8 @@ body {
 .half {
   width: 50%;
   float: left;
+}
+
+.padded {
+  padding: 10px;
 }
