@@ -1,0 +1,18 @@
+.select-wrap {
+  select {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    -webkit-appearance: none;
+    border: 1px solid $clr_grey;
+  }
+
+  span {
+    top: 15px;
+    right: 15px;
+    position: absolute;
+  }
+}
