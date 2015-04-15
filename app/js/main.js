@@ -43,6 +43,12 @@ $(document).ready(function() {
     },{
       name: 'page3',
       url: '/charts/page3/'
+    },{
+      name: 'page7',
+      url: '/charts/page7/'
+    },{
+      name: 'page8',
+      url: '/charts/page8/'
     }
   ];
 
@@ -83,12 +89,12 @@ $(document).ready(function() {
         bindPage3();
         break;
 
-      case 'page-4':
-        bindPage4();
+      case 'page-7':
+        bindPage7();
         break;
 
-      case 'page-5':
-        bindPage5();
+      case 'page-8':
+        bindPage8();
         break;
     }
   });
@@ -142,33 +148,81 @@ $(document).ready(function() {
   function bindPage3() {
     pagedata = calls[2].data;
     
-    $page = $('#page-3');
+    var xaxis   = [];
+    var series1 = [pagedata.previous_year];
+    var series2 = [pagedata.current_year];
 
-    $previousyear = $page.find('.previousyear');
-    $currentyear  = $page.find('.currentyear');
+    pagedata.series1.forEach(function(record) {
+      series1.push(record.count);
 
-    // console.log($previousyear);
-    // console.log($currentyear);
-  }
-
-  function createLineChart(data, element) {
-    var arr  = ['2015'];
-    var arr2 = ['2014'];
-
-    data.records.forEach(function(record) {
-      arr.push(series1.original_estimate_value);
-      arr2.push(series.original_estimate_value * 2);
+      if(xaxis.indexOf(record.month) === -1) {
+        xaxis.push(record.month);
+      }
     });
+
+    pagedata.series2.forEach(function(record) {
+      series2.push(record.count);
+
+      if(xaxis.indexOf(record.month) === -1) {
+        xaxis.push(record.month);
+      }
+    });
+
+    //generating c3...
     var chart = c3.generate({
-      bindto: element,
+      //to bind use ID from the DOM
+      bindto: '#page-3-line-chart',
       data: {
-        columns: [ arr, arr2 ]
+        //variable is array of arrays like this [['2014', 3, 5], ['2015', 4, 6]]
+        columns: [series1, series2]
       },
       axis: {
         x: {
           type: 'category',
-          categories: ['Jan', 'Feb']
+          categories: xaxis
         }
+      }
+    });
+  }
+
+  function bindPage7() {
+    pagedata = calls[3].data;
+
+    // var name = [pagedata];
+    // var count = [pagedata];
+    // var perc = [pagedata];
+
+    // console.log(pagedata);
+
+    var serie = [];
+    
+    for (var i = pagedata.length - 1; i >= 0; i++) {
+      pagedata.name[i]
+    };
+
+    // pagedata.records.forEach(function(record) {
+    //   name.push(record.name);
+    //   count.push(record.count);
+    //   perc.push(record.perc);
+    // });
+
+
+
+
+    console.log(name, count, perc);
+
+    var chart = c3.generate({
+      bindto: '#page-7-pie-chart',
+      data: {
+          // iris data from R
+          columns: [
+              ['data1', 30],
+              ['data2', 120],
+          ],
+          type : 'pie',
+          onclick: function (d, i) { console.log("onclick", d, i); },
+          onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+          onmouseout: function (d, i) { console.log("onmouseout", d, i); }
       }
     });
   }

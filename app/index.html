@@ -4,7 +4,10 @@ layout: default
 
 
 <div class="step" data-x="0" data-y="0" id="dropdown">
-  <select class="dropdown"></select>
+  <div class="relative select-wrap">
+    <select class="dropdown"></select>
+    <span>&#x25BC;</span>
+  </div>
 </div>
 
 <div class="step" data-x="2000" data-y="0" id="coverpage">
@@ -64,15 +67,16 @@ layout: default
 </div>
 
 <div class="step" data-x="6000" data-y="0" id="page-3">
-  <div id='lineChart'>
-    page 3 - Line Chart
-  </div>
+  Line Chart
+  <div id="page-3-line-chart"></div>
 </div>
 
-<div class="step" data-x="8000" data-y="0" id="page-4">
-  page 4 - Pie Chart
+<div class="step" data-x="8000" data-y="0" id="page-7">
+  Pie Chart
+  <div id="page-7-pie-chart"></div>
 </div>
 
-<div class="step" data-x="10000" data-y="0" id="page-5">
-  page 5 - Stacked Bar Chart
+<div class="step" data-x="10000" data-y="0" id="page-8">
+  Stacked Bar Chart
+  <div id="page-8-bar-chart"></div>
 </div>
