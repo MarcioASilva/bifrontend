@@ -188,41 +188,53 @@ $(document).ready(function() {
   function bindPage7() {
     pagedata = calls[3].data;
 
-    // var name = [pagedata];
-    // var count = [pagedata];
-    // var perc = [pagedata];
+    var series = [];
 
-    // console.log(pagedata);
-
-    var serie = [];
-    
-    for (var i = pagedata.length - 1; i >= 0; i++) {
-      pagedata.name[i]
-    };
-
-    // pagedata.records.forEach(function(record) {
-    //   name.push(record.name);
-    //   count.push(record.count);
-    //   perc.push(record.perc);
-    // });
-
-
-
-
-    console.log(name, count, perc);
+    pagedata.records.forEach(function(record) {
+      series.push([record.name, parseFloat(record.perc)]);
+    });
 
     var chart = c3.generate({
       bindto: '#page-7-pie-chart',
       data: {
-          // iris data from R
-          columns: [
-              ['data1', 30],
-              ['data2', 120],
-          ],
+          columns: series,
           type : 'pie',
           onclick: function (d, i) { console.log("onclick", d, i); },
           onmouseover: function (d, i) { console.log("onmouseover", d, i); },
           onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+      }
+    });
+  };
+
+  function bindPage8() {
+    pagedata = calls[4].data;
+
+    var series = [];
+
+    pagedata.records.forEach(function(record) {
+      series.push([record.name, (record.count)]);
+      // series.push([record.name, (record.count).replace(',','')]);
+    });
+
+    console.log(series);
+    var chart = c3.generate({
+      bindto: '#page-8-bar-chart',
+      data: {
+          columns: //[series] 
+          [
+              ['Open', 725],
+              ['Closed', 2000],
+          ]
+          ,
+          type: 'bar',
+          groups: [
+              ['data1']
+          ]
+      },
+      grid: {
+          y: {
+              lines: [{value:0}]
+          }
       }
     });
   }
