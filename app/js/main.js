@@ -212,23 +212,19 @@ $(document).ready(function() {
     var series = [];
 
     pagedata.records.forEach(function(record) {
-      series.push([record.name, (record.count)]);
-      // series.push([record.name, (record.count).replace(',','')]);
+      // series.push([record.name, (record.count)]);
+      series.push([record.name, (record.count).replace(',','')]);
     });
+
 
     console.log(series);
     var chart = c3.generate({
       bindto: '#page-8-bar-chart',
       data: {
-          columns: //[series] 
-          [
-              ['Open', 725],
-              ['Closed', 2000],
-          ]
-          ,
+          columns: series,
           type: 'bar',
           groups: [
-              ['data1']
+              ['Closed', 'Open']
           ]
       },
       grid: {
