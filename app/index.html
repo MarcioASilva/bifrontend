@@ -5,20 +5,24 @@ layout: default
 
 <div class="step" data-x="0" data-y="0" id="dropdown">
   <div class="relative select-wrap">
-    <div>
-      <h1>Customer Monthly Report</h1>      
+    <div class="pageTitle">
+      Customer Monthly Report
     </div>
     <select class="dropdown"></select>
-    <span>&#x25BC;</span>
+    <span></span>
   </div>
 </div>
 
 <div class="step" data-x="2000" data-y="0" id="coverpage">
 
   <div class="coverpage-reportdate">
-    <div>Management Information</div>
-    <img src="CustomerLogo">
-    <span></span>
+    <div class"logo">
+      <img src="..\img\logo.png" alt="Customer Logo" height="200" width="200">
+    </div>
+    <div class="coverPageTitle">Management Information</div>
+    <div class="coverpage-reportdate">
+      <span></span>
+    </div>
   </div>
 
   <div class="coverpage-dateexported">
@@ -27,8 +31,8 @@ layout: default
 </div>
 
 <div class="step" data-x="4000" data-y="0" id="page-2">
-  <div>
-    <h1>Summary...</h1>      
+  <div class="page2Title">
+    <h1>Assignment Volume Summary</h1>      
   </div>
 
   <div class="previousyear half">
@@ -37,7 +41,7 @@ layout: default
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col" colspan="3"></th>
+            <th class="thead" scope="col" colspan="3"></th>
           </tr>
         </thead>
         <tfoot>
@@ -58,7 +62,7 @@ layout: default
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col" colspan="3"></th>
+            <th class="thead" scope="col" colspan="3"></th>
           </tr>
         </thead>
         <tfoot>
@@ -75,7 +79,9 @@ layout: default
 </div>
 
 <div class="step" data-x="6000" data-y="0" id="page-3">
-  Line Chart
+  <div class="page3Title">
+    Line Chart
+  </div>
   <div id="page-3-line-chart"></div>
 </div>
 

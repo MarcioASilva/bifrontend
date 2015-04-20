@@ -13,7 +13,7 @@ $(document).ready(function() {
     type: 'GET'
   }).done(function(data) {
 
-    var html = '<option value="0">Select Report By Month</option>';
+    var html = '<option value="0">Select Report By Month &#x25BC;</option>';
 
     data.records.forEach(function(report) {
       html += '<option value="' + report.id + '">' + report.value + '</option>';
@@ -135,10 +135,10 @@ $(document).ready(function() {
     var html = '';
 
     data.forEach(function(record) {
-      html += '<tr>' +
-                '<td>' + record.name + '</td>' +
-                '<td>' + record.count + '</td>' +
-                '<td>' + record.perc + '</td>' +
+      html += '<tr class="tableRow2">' +
+                '<td class="trName">' + record.name + '</td>' +
+                '<td class="trCount">' + record.count + '</td>' +
+                '<td class="trPerc">' + record.perc + '</td>' +
               '</tr>';
     });
 

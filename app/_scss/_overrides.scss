@@ -6,4 +6,75 @@
 .step {
   width: 1500px;
   font-family: arial;
+  margin: auto;
+  padding: 75px 75px;
+}
+
+.half {
+  padding: 25px;
+}
+
+.coverPageTitle {
+  padding-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+table, tr, th {
+  border: 1px solid #262626;
+  font-size: 20px;
+}
+
+th, tfoot {
+  background-color: #999999;
+  font-weight: bold;
+}
+
+.thead, .tfoot  {
+  font-weight: bold;
+  background-color: #999999;
+}
+
+#coverpage {
+  text-align: center;
+}
+
+.page2Title {
+  padding-left: 35px;
+}
+
+.page3Title {
+ padding-left: 35px; 
+}
+
+.trName {
+  text-align: left;
+  padding-left: 5%;
+  width: 50%;
+}
+
+.trCount {
+  text-align: right;
+  width: 10%;
+}
+
+.trPerc {
+  text-align: right;
+  // margin-left: 50%;
+  // width: 20px;
+}
+
+.table-total {
+  background-color: blue;
+  // padding-right: 50%;
+  // margin-right: 200px;
+  text-align: right;
+  // width: 1%;
+}
+
+
+#table-total {
+  width: 50px;
+  // padding-right: 50%;
 }
