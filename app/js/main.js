@@ -199,12 +199,12 @@ $(document).ready(function() {
       data: {
           columns: series,
           type : 'pie',
-          onclick: function (d, i) { console.log("onclick", d, i); },
-          onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-          onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+          // onclick: function (d, i) { console.log('onclick', d, i); },
+          // onmouseover: function (d, i) { console.log('onmouseover', d, i); },
+          // onmouseout: function (d, i) { console.log('onmouseout', d, i); }
       }
     });
-  };
+  }
 
   function bindPage8() {
     pagedata = calls[4].data;

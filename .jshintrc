@@ -14,5 +14,14 @@
   "undef": true,
   "strict": false,
   "trailing": true,
-  "smarttabs": true
+  "smarttabs": true,
+  "globals": {
+    "$": true,
+    "pagedata": true,
+    "c3": true,
+    "$currentyear": true,
+    "$previousyear": true,
+    "$page": true,
+    "impress": true
+  }
 }
