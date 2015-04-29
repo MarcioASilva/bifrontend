@@ -336,6 +336,17 @@ module.exports = function (grunt) {
         'compass:dist',
         'copy:dist'
       ]
+    },
+
+    buildcontrol: {
+      dist: {
+        options: {
+          remote: 'git@github.com:MarcioASilva/MarcioASilva.github.io.git',
+          branch: 'master',
+          commit: true,
+          push: true
+        }
+      }
     }
   });
 
@@ -396,5 +407,11 @@ module.exports = function (grunt) {
     'check',
     'test',
     'build'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'check',
+    'build',
+    'buildcontrol'
   ]);
 };
