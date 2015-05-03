@@ -4,7 +4,11 @@ $(document).ready(function() {
   impress().init();
 
   // Our global(ish) values
-  var apiurl   = 'http://bi.app/api';
+  //Local
+  // var apiurl   = 'http://bi.app/api';
+  
+  //Pagoda
+  var apiurl   = 'http://biapi.gopagoda.io/';
   var dropdown;
 
   // The dropdown data
