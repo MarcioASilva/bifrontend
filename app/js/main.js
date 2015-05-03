@@ -8,7 +8,7 @@ $(document).ready(function() {
   // var apiurl   = 'http://bi.app/api';
   
   //Pagoda
-  var apiurl   = 'http://biapi.gopagoda.io';
+  var apiurl   = 'http://biapi.gopagoda.io/api';
   var dropdown;
 
   // The dropdown data
