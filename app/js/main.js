@@ -5,10 +5,10 @@ $(document).ready(function() {
 
   // Our global(ish) values
   //Local
-  // var apiurl   = 'http://bi.app/api';
+  var apiurl   = 'http://bi.app/api';
   
   //Pagoda
-  var apiurl   = 'http://biapi.gopagoda.io/api';
+  // var apiurl   = 'http://biapi.gopagoda.io/api';
   var dropdown;
 
   // The dropdown data
@@ -17,7 +17,7 @@ $(document).ready(function() {
     type: 'GET'
   }).done(function(data) {
 
-    var html = '<option value="0">Select Report By Month &#x25BC;</option>';
+    var html = '<option value="0">Select Report By Month</option>';
 
     data.records.forEach(function(report) {
       html += '<option value="' + report.id + '">' + report.value + '</option>';
