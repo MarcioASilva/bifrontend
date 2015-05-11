@@ -5,10 +5,10 @@ $(document).ready(function() {
 
   // Our global(ish) values
   //Local
-  var apiurl   = 'http://bi.app/api';
+  // var apiurl   = 'http://bi.app/api';
   
   //Pagoda
-  // var apiurl   = 'http://biapi.gopagoda.io/api';
+  var apiurl   = 'http://46.101.48.182/api';
   var dropdown;
 
   // The dropdown data
